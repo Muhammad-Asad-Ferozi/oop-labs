@@ -81,7 +81,7 @@ public:
 
 	
 
-	int operator++()
+	Date operator++()
 	{
 
 		if (day == 31)
@@ -101,12 +101,12 @@ public:
 		{
 			day++;
 		}
-		return day;
+		return *this;
 	}
 
-	int operator++(int temp)
+	Date operator++(int te)
 	{
-		temp = day;
+		Date temp(day, month, year);
 		
 		if (day == 31)
 		{
@@ -129,7 +129,7 @@ public:
 		return temp;
 	}
 	
-	int operator--()
+	Date operator--()
 	{
 		
 		if (day == 1)
@@ -152,12 +152,14 @@ public:
 		
 
 
-		return day;
+		return *this;
 	}
 
-	int operator--(int temp)
+	Date operator--(int te)
 	{
-		temp = day;
+		
+
+		Date temp(day, month, year);
 		
 		if (day == 1)
 		{
@@ -302,12 +304,18 @@ int main()
 	Date ob1(31,12,2001), ob2(22,1,1950);
 
 
-	cin >> ob1 >> ob2;
-	ob2--;
-	ob1++;
+	//cin >> ob1 >> ob2;
+	//ob2--;
+	//ob1++;
+	//
+	//cout << ob1<<ob2;
 	
-	cout << ob1<<ob2;
-	
+
+	Date ob3(1, 1, 2000);
+	cout << ob3;
+	cout << ob3--;
+	cout << ob3;
+
 	return 0;
 
 }
